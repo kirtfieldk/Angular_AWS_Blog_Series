@@ -1,0 +1,16 @@
+
+<div class="mt-5 mb-5">
+    <div *ngFor="let camp of camps;let i=index">
+        <div class="border border-2 rounded border-primary w-100 ">
+            <h3 class="ml-3 mt-3 ">{{camp.name |uppercase}}</h3>
+            <p class="ml-3 fw-light">{{camp.description}}</p>
+            <div class="container bg-primary border-top pt-3 pb-3">
+                <div class="row">
+                    <div *ngFor="let skill of camp.careers">
+                        <div class="col-sm border-right">{{skill}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
