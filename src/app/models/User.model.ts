@@ -1,13 +1,10 @@
 export interface User {
-  msg: string;
-  data: {
-    role: string;
-    _id: string;
-    name: string;
-    email: string;
-    createdAt: string;
-    __v: number;
-  };
+  role: string;
+  _id: string;
+  name: string;
+  email: string;
+  createdAt: string;
+  __v: number;
 }
 export interface CurrentUserResponse {
   msg: string;

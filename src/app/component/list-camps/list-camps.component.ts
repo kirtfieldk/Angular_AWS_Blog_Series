@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Bootcamp } from 'src/app/models/Bootcamp.model';
+import { BcServiceService } from 'src/app/service/Bc-service/bc-service.service';
 
 @Component({
   selector: 'app-list-camps',
@@ -7,27 +8,11 @@ import { Bootcamp } from 'src/app/models/Bootcamp.model';
 })
 export class ListCampsComponent implements OnInit {
   public camps: Bootcamp[];
-  constructor() {}
+  constructor(private bcService: BcServiceService) {}
 
   ngOnInit(): void {
-    this.camps = [
-      {
-        location: null,
-        careers: ['Killer', 'bee', 'dog', 'hunter'],
-        photo: 'stringnull',
-        housing: true,
-        jobAssistance: true,
-        jobGuarantee: true,
-        acceptGi: true,
-        _id: 'stringnull',
-        name: 'stringnull',
-        description: 'stringnull',
-        user: 'stringnull',
-        createdAt: 'stringnull',
-        slug: 'stringnull',
-        __v: 12,
-        id: 'stringnull',
-      },
-    ];
+    this.bcService.fetchCamps().subscribe((el: Bootcamp[]) => {
+      this.camps = el;
+    });
   }
 }

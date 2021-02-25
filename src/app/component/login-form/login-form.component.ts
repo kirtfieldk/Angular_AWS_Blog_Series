@@ -29,7 +29,6 @@ export class LoginFormComponent implements OnInit {
     this.register = !this.register;
   }
   submit(): void {
-    console.log(this.userCredForm);
     if (this.register)
       this.registerService.registerUser(this.userCredForm.value);
     else this.loginService.login(this.userCredForm.value);

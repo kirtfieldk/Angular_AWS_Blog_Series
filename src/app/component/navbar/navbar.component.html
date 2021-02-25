@@ -1,9 +1,10 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-primary">
     <div class="container-fluid">
-        <h3><a href="#" class="navbar-brand w-75">Camps Of Power</a> </h3>
-        <form class="d-flex">
-            <input type="search" placeholder="Search Camps" class="form-control me-2" aria-label="Search">
+        <h3><a href="#" class="navbar-brand w-50">Camps Of Power</a> </h3>
+        <form class="d-flex w-50">
+            <input type="search" placeholder="Search Camps" class="form-control  me-2" aria-label="Search">
             <button class="btn btn-outline-light ml-1">Search</button>
         </form>
+        <div>{{user ? user.name : 'Profile'}}</div>
     </div>
 </nav>
