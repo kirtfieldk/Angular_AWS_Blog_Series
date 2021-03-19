@@ -14,6 +14,8 @@ import { LoginServiceService } from './service/Login-service/login-service.servi
 import { BcServiceService } from './service/Bc-service/bc-service.service';
 import { UserServiceService } from './service/User-service/user-service.service';
 import { RegisterServiceService } from './service/Register-service/register-service.service';
+import { ProfileComponent } from './component/profile/profile.component';
+import { AuthGaurd } from './util/AuthRoute.gaurd';
 
 @NgModule({
   declarations: [
@@ -22,6 +24,7 @@ import { RegisterServiceService } from './service/Register-service/register-serv
     ListCampsComponent,
     HomePageComponent,
     LoginFormComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,
@@ -35,6 +38,7 @@ import { RegisterServiceService } from './service/Register-service/register-serv
     BcServiceService,
     UserServiceService,
     RegisterServiceService,
+    AuthGaurd,
   ],
   bootstrap: [AppComponent],
 })
