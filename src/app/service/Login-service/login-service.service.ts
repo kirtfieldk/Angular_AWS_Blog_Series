@@ -1,11 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, EventEmitter } from '@angular/core';
-import { Observable, of } from 'rxjs';
 import {
   LoginCreds,
   UserLoginResponse,
 } from 'src/app/models/User.model';
-import { UserServiceService } from '../User-service/user-service.service';
+import { AUTHORIZATION } from 'src/app/util/keywords';
 
 @Injectable({
   providedIn: 'root',
@@ -22,6 +21,7 @@ export class LoginServiceService {
         data,
       )
       .subscribe((el: UserLoginResponse) => {
+        localStorage.setItem(AUTHORIZATION, el.token);
         this.token.emit(el.token);
       });
   }

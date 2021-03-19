@@ -11,16 +11,9 @@ export class UserServiceService {
   currentUser: User;
   constructor(private httpClient: HttpClient) {}
 
-  fetchUser(userToken: String): void {
-    let headers = new HttpHeaders().set(
-      'Authorization',
-      `Bearer ${userToken}`,
-    );
+  fetchUser(): void {
     this.httpClient
-      .get<CurrentUserResponse>(
-        'http://localhost:5000/v1/auth/user',
-        { headers },
-      )
+      .get<CurrentUserResponse>('http://localhost:5000/v1/auth/user')
       .subscribe(
         (el: CurrentUserResponse) => {
           this.currentUser = el.data;

@@ -1,6 +1,9 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import {
+  HttpClientModule,
+  HTTP_INTERCEPTORS,
+} from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -16,6 +19,7 @@ import { UserServiceService } from './service/User-service/user-service.service'
 import { RegisterServiceService } from './service/Register-service/register-service.service';
 import { ProfileComponent } from './component/profile/profile.component';
 import { AuthGaurd } from './util/AuthRoute.gaurd';
+import { AttachAuthTokenService } from './interceptors/AttachAuthToke.interceptor';
 
 @NgModule({
   declarations: [
@@ -39,6 +43,11 @@ import { AuthGaurd } from './util/AuthRoute.gaurd';
     UserServiceService,
     RegisterServiceService,
     AuthGaurd,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AttachAuthTokenService,
+      multi: true,
+    },
   ],
   bootstrap: [AppComponent],
 })

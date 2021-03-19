@@ -26,7 +26,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
     this.loginService.token.subscribe(
       (el: string) => {
         this.token = el;
-        this.userService.fetchUser(el);
+        this.userService.fetchUser();
       },
       null,
       () => this.token.length > 1,
